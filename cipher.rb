@@ -1,8 +1,15 @@
 puts "Enter cipher string:"
 string = gets.chomp.split("")
 
-puts "Enter shift value:"
+puts "Enter shift value: "
 shift = gets.chomp.to_i
+
+while shift == 0 do
+    puts "Invalid shift number"
+    puts "Please enter a shift value"
+    shift = gets.chomp.to_i
+end
+
 
 ### ADD IN VERIFICATION THAT AN INTEGER HAS BEEN ENTERED
 ### ADD IN - IF NUMBER > 26 then NUMBER = NUMBER % 26 - This was if you enter something like 80000 as the shift value it will 
