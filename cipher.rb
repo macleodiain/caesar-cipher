@@ -1,19 +1,23 @@
+
+# get string to be encoded then split into and array of chars
 puts "Enter cipher string:"
 string = gets.chomp.split("")
 
+#get the shift value and convert to integer if possible
 puts "Enter shift value: "
 shift = gets.chomp.to_i
 
-while shift == 0 do
+#check user input is valid, if not ask for input again
+while shift <= 0 do
     puts "Invalid shift number"
     puts "Please enter a shift value"
     shift = gets.chomp.to_i
 end
 
-
-### ADD IN VERIFICATION THAT AN INTEGER HAS BEEN ENTERED
-### ADD IN - IF NUMBER > 26 then NUMBER = NUMBER % 26 - This was if you enter something like 80000 as the shift value it will 
-### work out how many times that would wrap through the alphabet instead of trying to access ascii 80000
+#if shift value is > 26, wrap back around to begining
+if shift > 26
+    shift = shift%26
+end
 
 
 encoded = string.map do|letter| 
@@ -42,4 +46,4 @@ encoded = string.map do|letter|
   
 end
 
-p "#{encoded.join}"
+puts "#{encoded.join}"
